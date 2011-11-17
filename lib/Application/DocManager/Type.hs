@@ -1,14 +1,23 @@
-{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE RecordWildCards #-}
 
-module Application.DocManager.Type where 
+module Application.DocManager.Type where
 
-import System.Console.CmdArgs
+import System.FilePath
 
-data Docmanager = Test 
-              deriving (Show,Data,Typeable)
+data DocType = TeX | Xoj
+             deriving (Show,Eq,Ord)
 
-test :: Docmanager
-test = Test 
+data Document = Document { prefix :: String
+                         , serialnum :: String 
+                         , version :: String
+                         , doctype :: DocType } 
+                deriving (Show)
 
-mode = modes [test]
+doctypeext :: DocType -> String  
+doctypeext TeX = "tex"
+doctypeext Xoj = "xoj"
 
+docfilename :: Document -> String 
+docfilename Document {..} = 
+    prefix ++ serialnum ++ version <.> doctypeext doctype 
+             

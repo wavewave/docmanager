@@ -2,7 +2,7 @@ module Main where
 
 import System.Console.CmdArgs
 
-import Application.DocManager.Type
+import Application.DocManager.ProgType
 import Application.DocManager.Command
 
 main :: IO () 

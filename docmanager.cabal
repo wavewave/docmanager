@@ -26,11 +26,16 @@ Library
   ghc-prof-options: -caf-all -auto-all
   Build-Depends: 
                    base>4, mtl>2, directory, filepath,
-                   cmdargs
+                   cmdargs, configparser, parsec > 3, 
+                   directory, 
+                   process
   Exposed-Modules: 
-                   Application.DocManager.Type
+                   Application.DocManager.ProgType
                    Application.DocManager.Job
                    Application.DocManager.Command
+                   Application.DocManager.Config
+                   Application.DocManager.Data.Document
+                   Application.DocManager.Type
   Other-Modules: 
 
  
