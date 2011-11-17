@@ -32,7 +32,6 @@ runHXournal dmc doc = do
 
   copyFile (xdir </> fname) (wdir </> fnamebdy </> fname) 
   system $ "hxournal makesvg " ++ fname
- 
 
   renameDirectory (wdir </> fnamebdy) (webdir </> fnamebdy) 
   return ()

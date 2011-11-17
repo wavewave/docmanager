@@ -37,6 +37,7 @@ Library
                    Application.DocManager.Data.Document
                    Application.DocManager.Type
                    Application.DocManager.Xournal 
+                   Application.DocManager.Xelatex 
   Other-Modules: 
 
  
