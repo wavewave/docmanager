@@ -8,13 +8,17 @@ import HEP.Parser.Config
 
 
 data DocManagerConfig = DocManagerConfig { 
-  dmc_workingdir :: FilePath, 
-  dmc_docbase :: FilePath
+  dmc_working :: FilePath, 
+  dmc_texbase :: FilePath, 
+  dmc_xojbase :: FilePath,
+  dmc_webbase :: FilePath
 } deriving (Show)
 
 docManagerConfigParser :: ParsecT String () Identity DocManagerConfig 
 docManagerConfigParser = 
   oneGroupFieldInput "docmanager" $ 
-    DocManagerConfig <$> (oneFieldInput "workingdir") 
-                     <*> (oneFieldInput "docbase")
+    DocManagerConfig <$> (oneFieldInput "working") 
+                     <*> (oneFieldInput "texbase")
+                     <*> (oneFieldInput "xojbase")
+                     <*> (oneFieldInput "webbase")
 

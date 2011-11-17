@@ -1,5 +1,5 @@
 Name:		docmanager
-Version:	0.0
+Version:	0.0.999
 Synopsis:	
 Description: 	
 License: 	BSD3
@@ -36,6 +36,7 @@ Library
                    Application.DocManager.Config
                    Application.DocManager.Data.Document
                    Application.DocManager.Type
+                   Application.DocManager.Xournal 
   Other-Modules: 
 
  
