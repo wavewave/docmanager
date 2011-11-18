@@ -11,15 +11,18 @@ import System.Environment
 import System.FilePath
 
 commandLineProcess :: Docmanager -> IO ()
-commandLineProcess Test = do 
+commandLineProcess c = do 
   putStrLn "test called"
-
   homedir <- getEnv "HOME"
   let dotdocmanager = homedir </> ".docmanager"
   configstr <- readFile dotdocmanager
   let conf_result = parse docManagerConfigParser "" configstr 
   case conf_result of
     Left err -> putStrLn (show err) 
-    Right dmc -> startJob dmc
+    Right dmc -> do  
+      case c of 
+        Test -> startJob dmc
+        Individual fname -> startIndividualJob dmc fname
+
 
 
